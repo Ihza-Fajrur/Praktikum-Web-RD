@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.container{
+    margin: 200px auto;
+    border: 1px solid black;
+    width: 960px;
+    height: auto;
+}
+
+header{
+    background-color:white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav{
+    background-color:#DAA520;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.body{
+    display: flex;
+    height: auto;
+    width: auto;
+}
+
+.main_content{
+    background-color: bisque;
+    height: 400px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+}
+
+.myfoto{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.biodata{
+    width: 90%;
+}
+
+.content_berita{
+    background-color: bisque;
+    height: 400px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content_berita-top{
+    background-color: rgb(253, 213, 165);
+    border-top: 1px solid black;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.berita_1{
+    background-color: rgb(253, 213, 165);
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.berita_2{
+    background-color: rgb(253, 213, 165);
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.berita_3{
+    background-color: rgb(253, 213, 165);
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+footer{
+    background-color: bisque;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+}
