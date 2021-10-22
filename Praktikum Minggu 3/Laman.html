@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TUGAS MG 3</title>
+        <script>
+            function myFunction() {
+                var change = document.getElementById('DM_Button').textContent
+                if(change == "Dark Mode"){
+                    document.body.style.backgroundColor = "#000000";
+                    document.getElementById("container").style.color = "white";
+                    document.getElementById("container").style.border = "1px solid white";
+                    document.getElementById('DM_Button').textContent = "White Mode";
+                }
+                else if(change == "White Mode"){
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("container").style.color = "#000000";
+                    document.getElementById("container").style.border = "1px solid black";
+                    document.getElementById('DM_Button').textContent = "Dark Mode";
+                }
+            }
+            function myFunction2() {
+            
+                var cuaca = document.getElementById('cuaca').value;
+                if(cuaca == "1"){
+                    document.write("test")
+                    document.getElementById("p1").innerHTML = "Selamat, cuaca hari ini cerah anda bisa berpegian sesuka hati";
+                }
+                else if(cuaca == "2"){
+                    document.getElementById("p1").innerHTML = "Dapat terlihat bahwa langit ditutupi awan-awan hitam. Alangkah baiknya jika membawa payung";
+                }
+                else if(cuaca == "3"){
+                    document.getElementById("p1").innerHTML = "Dikarenakan adanya kabut, tingkat visibilitas akan berkurang. Hati-hati jika akan berkendara";
+                }
+                else if(cuaca == "4"){
+                    document.getElementById("p1").innerHTML = "Harap memebawa payung jika ingin beraktivitas";
+                }
+            }
+            function myFunction_3(){
+                var val = document.getElementById("faktorial").value;
+                var hasil = 1;
+                var i = 1;
+                for(i = 1; i < val; i+=1){
+                    hasil *= i;
+                }
+                document.getElementById("p2").value = hasil;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container" style="margin: auto; border: 1px solid black; width: 960px; height: auto;">
+            <div id="header">
+                <button id="DM_Button" type="button" onclick="myFunction()" style="float:right">Dark Mode</button>
+            </div>
+            <h2>This is my website</h2>
+
+            <form>
+                Pilihlah pilihan cuaca :
+                <input list="cuaca" oninput="myFunction2()" type="text">
+                <datalist id="cuaca" >
+                    <option label = "Cerah" value="1"></option>
+                    <option label="Mendung" value="2"></option>
+                    <option label="Berkabut" value="3"></option>
+                    <option label="Hujan" value="4"></option>
+                </datalist>
+                <h5 id="p1"></h5>
+            </form>
+            <form>
+                Masukkan Angka :
+                <input type="text" id="faktorial">
+                <button onclick="myFunction_3()">Get Factorial</button>
+                <h5 id="p2"></h5>
+            </form>
+        </div>
+    </body>
+</html>
