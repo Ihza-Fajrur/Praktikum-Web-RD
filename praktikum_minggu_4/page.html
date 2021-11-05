@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+    <title>Data Mahasiswa</title>
+</head>
+<body>
+    <h3>Input data mahasiswa</h3>
+    <form method="post" id="form_mahasiswa">
+        <label>NIM</label>
+        <input type="text" name="nim"><br>
+        <label>Nama</label>
+        <input type="text" name="nama"><br>
+        <label>Prodi</label>
+        <select name="prodi">
+            <option value="Teknik Informatika">Teknik Informatika</option>
+            <option value="Teknik Material">Teknik Material</option>
+            <option value="Teknik Mesin">Teknik Mesin</option>
+            <option value="Teknik Fisika">Teknik Fisika</option>
+            <option value="Fisika">Fisika</option>
+        </select><br>
+        <label>Angkatan</label>
+        <input type="text" name="angkatan"><br>
+    </form>
+    <button id="btn_tampil">Submit</button>
+    <br>
+    <hr>
+
+    <h3>Hapus data mahasiswa</h3>
+    <form method="post" id="form_delete_mahasiswa">
+        <label>NIM</label>
+        <input type="text" name="nim"><br>
+    </form>
+    <button id="btn_hapus">Submit</button>
+    <br>
+
+    <hr>
+    
+    <h3>Edit data mahasiswa</h3>
+    <form method="post" id="form_edit_mahasiswa">
+        <label>NIM</label>
+        <input type="text" name="nim"><br>
+        <label>Nama</label>
+        <input type="text" name="nama"><br>
+        <label>Prodi</label>
+        <select name="prodi">
+            <option value="Teknik Informatika">Teknik Informatika</option>
+            <option value="Teknik Material">Teknik Material</option>
+            <option value="Teknik Mesin">Teknik Mesin</option>
+            <option value="Teknik Fisika">Teknik Fisika</option>
+            <option value="Fisika">Fisika</option>
+        </select><br>
+        <label>Angkatan</label>
+        <input type="text" name="angkatan"><br>
+    </form>
+    <button id="#btn_edit">Submit</button>
+    <br>
+    <hr>
+
+    <label>Pilih Prodi :</label>
+    <select name="prodi">
+        <option value="Teknik Informatika">Teknik Informatika</option>
+        <option value="Teknik Material">Teknik Material</option>
+        <option value="Teknik Mesin">Teknik Mesin</option>
+        <option value="Teknik Fisika">Teknik Fisika</option>
+        <option value="Fisika">Fisika</option>
+    </select>
+    <hr>
+
+    <div id="tampil_data"></div>
+    <script>
+        $(document).ready(function(){
+            $('#tampil_data').load("tampil_combo.php");
+            $('#prodi').bind('change', function(){
+                var Kelamin=$("#prodi").val();
+                $.ajax({
+                    method: 'POST',
+                    url: "tampil_combo.php",
+                    data: {prodi:prodi},
+                    success: function(data){
+                        $('#tampil_data').html(data);
+                    }
+                });
+            });
+        });
+        $(document).ready(function(){
+            $('#btn_tampil').click(function(){
+                var data = $('#form_mahasiswa').serialize();
+                $.ajax({
+                    type    : 'POST',
+                    url     : "tambah.php",
+                    data    : data,
+                    cache   : false,
+                    success : function(data){
+                        $('#tampil_data').load("tampil.php");
+                    }
+                });
+            });
+        });
+        $(document).ready(function(){
+            $('#btn_hapus').click(function(){
+                var data = $('#form_delete_mahasiswa').serialize();
+                $.ajax({
+                    type    : 'POST',
+                    url     : "hapus.php",
+                    data    : data,
+                    cache   : false,
+                    success : function(data){
+                        $('#tampil_data').load("hapus.php");
+                    }
+                });
+            });
+        });
+        $(document).ready(function(){
+            $('#btn_edit').click(function(){
+                var data = $('#form_edit_mahasiswa').serialize();
+                $.ajax({
+                    type    : 'POST',
+                    url     : "edit.php",
+                    data    : data,
+                    cache   : false,
+                    success : function(data){
+                        $('#tampil_data').load("edit.php");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
